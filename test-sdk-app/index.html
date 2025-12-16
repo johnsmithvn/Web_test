@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Leanbase SDK</title>
+    <style>
+      body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+      button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+      .section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+      #logs { background: #f4f4f4; padding: 10px; height: 200px; overflow-y: scroll; border: 1px solid #333; font-family: monospace; }
+    </style>
+  </head>
+  <body>
+    <h1>SDK Integration Test Environment</h1>
+
+    <div class="section">
+      <h3>1. Test Identify (Login)</h3>
+      <input type="text" id="userIdInput" placeholder="Enter User ID (e.g., user_123)" value="test_user_001">
+      <button id="btnIdentify">Login / Identify</button>
+      <button id="btnReset">Reset / Logout</button>
+    </div>
+
+    <div class="section">
+      <h3>2. Test Autocapture (Click Events)</h3>
+      <p>Click vào các nút dưới đây để xem SDK có tự bắt event không:</p>
+      <button id="btnBuy" class="primary-btn">Mua Hàng (Buy Button)</button>
+      <a href="#" id="linkDemo">Link Demo (Anchor Tag)</a>
+      <div style="margin-top: 10px; border: 1px dashed red; padding: 10px;">
+        Click vào vùng div này (Test click div)
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>3. Test Custom Event</h3>
+      <button id="btnCustomEvent">Gửi Event "button_clicked"</button>
+      <button id="btnComplexEvent">Gửi Event có Properties phức tạp</button>
+    </div>
+
+    <div class="section">
+      <h3>Console Logs (Visualized)</h3>
+      <div id="logs">Waiting for actions...</div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

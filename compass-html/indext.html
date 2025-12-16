@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Compass HTML Test</title>
+
+    <script src="https://unpkg.com/@leanbase.com/js/dist/leanbase.iife.js"></script>
+    <script>
+      leanbase.init("<YOUR_PROJECT_API_KEY>", {
+        host: "https://<YOUR_INGEST_HOST>"
+      });
+    </script>
+  </head>
+  <body>
+    <h1>HTML Snippet Test</h1>
+
+    <button id="btn-autocapture">Click me (autocapture)</button>
+    <button id="btn-manual">Manual capture</button>
+    <button id="btn-identify">Identify</button>
+
+    <p><a href="/about.html">Go to /about</a></p>
+
+    <script>
+      document.getElementById("btn-manual").onclick = () => {
+        leanbase.capture("qe_manual_event", { from: "html", ts: Date.now() });
+      };
+
+      document.getElementById("btn-identify").onclick = () => {
+        // nếu SDK support identify, dùng nó. Nếu không thấy method, bỏ qua bước này.
+        if (leanbase.identify) {
+          leanbase.identify("qe_user_001", { email: "qe+html@demo.local", name: "QE HTML" });
+          leanbase.capture("qe_after_identify", { from: "html" });
+        } else {
+          console.warn("No leanbase.identify() in this build");
+        }
+      };
+    </script>
+  </body>
+</html>
