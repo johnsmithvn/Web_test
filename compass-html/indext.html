@@ -6,8 +6,8 @@
 
     <script src="https://unpkg.com/@leanbase.com/js/dist/leanbase.iife.js"></script>
     <script>
-      leanbase.init("<YOUR_PROJECT_API_KEY>", {
-        host: "https://<YOUR_INGEST_HOST>"
+      leanbase.init("lbc_domZKKA5YmxwkUjGLmoSPvKowxgtQzRBimT6TkFLAk5", {
+        host: "https://ingest-compass-25.leanflag.net"
       });
     </script>
   </head>
@@ -17,6 +17,13 @@
     <button id="btn-autocapture">Click me (autocapture)</button>
     <button id="btn-manual">Manual capture</button>
     <button id="btn-identify">Identify</button>
+      <div class="section">
+      <h3>1. Test Identify (Login)</h3>
+      <input type="text" id="userIdInput" placeholder="Enter User ID (e.g., user_123)" value="test_user_001">
+      <button id="btnIdentify">Login / Identify</button>
+      <button id="btnReset">Reset / Logout</button>
+    </div>
+
 
     <p><a href="/about.html">Go to /about</a></p>
 
