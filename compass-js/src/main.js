@@ -1,9 +1,9 @@
 import "./style.css";
-import { Leanbase } from "@leanbase.com/js";
+import { Leanbase } from '@leanbase.com/js'
 
-const leanbase = new Leanbase("lbc_ulgWdZV8K5mZGGhzR4tAtTsY4A5FZhZtElUvud91RbN", {
-  host: "https://ingest-compass-25.leanflag.net",
-  person_profiles: "identified_only",
+const leanbase = new Leanbase('lbc_k91rsdLJUWyqxCsXK9gecFkK2VPWBc4ZrbBhlDilbB0', {
+  host: 'https://ingest-compass-25.leanflag.net',  // Use 'host', not 'api_host'
+  person_profiles: 'identified_only'  // or 'always'
 });
 globalThis.leanbase = leanbase;
 console.log("init done");

@@ -12,6 +12,6 @@
     "vite": "^7.2.4"
   },
   "dependencies": {
-    "@leanbase.com/js": "^0.1.2"
+    "@leanbase.com/js": "^0.1.3"
   }
 }
