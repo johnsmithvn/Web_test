@@ -1,16 +1,17 @@
 
 
 import { Leanbase } from '@leanbase.com/js'
-import PostHog from 'posthog-js-lite'
-import posthog from "posthog-js";
-const key = 'lbc_k91rsdLJUWyqxCsXK9gecFkK2VPWBc4ZrbBhlDilbB0';
+// import PostHog from 'posthog-js-lite'
+// import posthog from "posthog-js";
+const key = '';
 
 
 
 export function usePosthog() {
 const leanbase = new Leanbase(key, {
-  host: 'https://ingest-compass-25.leanflag.net',  // Use 'host', not 'api_host'
-  person_profiles: 'identified_only'  // or 'always'
+  host: 'https://i.leanbase.co',  // Use 'host', not 'api_host'
+  person_profiles: 'identified_only',  // or 'always'
+  capture_pageviews: true
 });
   return { leanbase };
 }

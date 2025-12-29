@@ -1,5 +1,6 @@
 // 1. Import SDK
-import { Leanbase } from '@leanbase.com/js'
+// import { Leanbase } from '@leanbase.com/js'
+import PostHog from 'posthog-js-lite'
 
 // Hàm log ra màn hình để bạn dễ nhìn
 function logToScreen(msg) {
@@ -19,12 +20,17 @@ logToScreen('Đang khởi tạo SDK...');
 
 let leanbase;
 try {
-  leanbase = new Leanbase(API_KEY, {
-    host: HOST_URL,
-    person_profiles: 'identified_only', // Hoặc 'always' tùy cấu hình bạn muốn test
-    // Bật debug mode nếu SDK có hỗ trợ (thường PostHog clones có flag này)
-    debug: true 
-  });
+  // leanbase = new Leanbase(API_KEY, {
+  //   host: HOST_URL,
+  //   person_profiles: 'identified_only', // Hoặc 'always' tùy cấu hình bạn muốn test
+  //   // Bật debug mode nếu SDK có hỗ trợ (thường PostHog clones có flag này)
+  //   debug: true 
+  // });
+
+ leanbase = new PostHog(API_KEY, {
+//   /* options, e.g. for self-hosted users */
+  host: HOST_URL,person_profiles: 'identified_only', debug: true
+});
   logToScreen('SDK Initialized thành công!');
 } catch (error) {
   logToScreen('Lỗi khởi tạo SDK: ' + error.message);

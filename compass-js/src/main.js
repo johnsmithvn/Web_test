@@ -1,11 +1,21 @@
 import "./style.css";
 import { Leanbase } from '@leanbase.com/js'
+// const leanbase = new Leanbase('lbc_xBFdY7G2xQDAYVv1h858CQUVJrxuEVTTMNhWbvYHsm1', {
+//   host: 'https://ingest-compass-25.leanflag.net',  // Use 'host', not 'api_host'
+//   person_profiles: 'identified_only'  // or 'always'
+// });
+import PostHog from 'posthog-js-lite'
 
-const leanbase = new Leanbase('lbc_k91rsdLJUWyqxCsXK9gecFkK2VPWBc4ZrbBhlDilbB0', {
-  host: 'https://ingest-compass-25.leanflag.net',  // Use 'host', not 'api_host'
-  person_profiles: 'identified_only'  // or 'always'
+const leanbase = new PostHog('lbc_xBFdY7G2xQDAYVv1h858CQUVJrxuEVTTMNhWbvYHsm1', {
+  host: 'https://ingest-compass-25.leanflag.net',
+  // person_profiles: 'identified_only'  // or 'always'
 });
+
+///////
+
+
 globalThis.leanbase = leanbase;
+
 console.log("init done");
 
 function safe(fn) {
@@ -85,7 +95,7 @@ document.getElementById("m-error").onclick = () => {
 };
 
 document.getElementById("m-burst").onclick = () => {
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 10; i++) {
     leanbase.capture("qe_burst_event", { i });
   }
 };

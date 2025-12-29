@@ -17,9 +17,9 @@ const router = createRouter({
 
 const { posthog } = usePosthog();
 
-// SPA pageview: để chắc ăn, hook router
-router.afterEach((to) => {
-  posthog.capture("$pageview", { path: to.fullPath });
-});
+// // SPA pageview: để chắc ăn, hook router
+// router.afterEach((to) => {
+//   posthog.capture("$pageview", { path: to.fullPath });
+// });
 
 export default router;
