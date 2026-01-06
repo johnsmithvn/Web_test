@@ -25,8 +25,7 @@ try {
     person_profiles: 'identified_only', // Hoặc 'always' tùy cấu hình bạn muốn test
     // Bật debug mode nếu SDK có hỗ trợ (thường PostHog clones có flag này)
     debug: true ,
-    capture_pageview: true // Tự động ghi nhận pageview
-
+    capture_pageview: true, // Tự động ghi nhận pageview
     
   });
 
