@@ -218,3 +218,9 @@ function submitPersonUpdate() {
   // updAttrKey.value = ""; updAttrValue.value = "";
 }
 </script>
+
+<style scoped>
+body {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+</style>

@@ -3,7 +3,7 @@
 import { Leanbase } from '@leanbase.com/js'
 // import PostHog from 'posthog-js-lite'
 // import posthog from "posthog-js";
-const key = '';
+const key = 'lbc_qyZZjvTGm9O4OuI7h8hGdMhunrEkz4cYZ3VOL8iLDUE';
 
 
 
@@ -13,7 +13,7 @@ const leanbase = new Leanbase(key, {
   person_profiles: 'identified_only',  // or 'always'
   capture_pageviews: true
 });
-  return { leanbase };
+  return { posthog: leanbase };
 }
 
 // export function usePosthog() {
