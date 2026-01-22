@@ -1,7 +1,19 @@
 <script setup>
-import { usePosthog } from './composables/useLeanbaseCompass';
+import { ref, onMounted } from 'vue';
+import { usePosthog, setEventLogger } from './composables/useLeanbaseCompass';
+import EventLogger from './components/EventLogger.vue';
 
 const { posthog } = usePosthog();
+const eventLogger = ref(null);
+
+onMounted(() => {
+  // Set up event logger callback
+  if (eventLogger.value) {
+    setEventLogger((eventName, properties) => {
+      eventLogger.value.addEvent(eventName, properties);
+    });
+  }
+});
 
 function trackNavigation(page) {
   posthog.capture("qe_navigation_clicked", { 
@@ -83,6 +95,9 @@ function trackNavigation(page) {
       </div>
     </footer>
   </div>
+
+  <!-- Event Logger Component -->
+  <EventLogger ref="eventLogger" />
 </template>
 
 <style scoped>
